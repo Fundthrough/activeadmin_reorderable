@@ -55,7 +55,13 @@ $.fn.reorderable = function(opts) {
       newPosition = nextPosition || prevPosition;
     }
 
-    $.post(url, { position: newPosition });
+    $(".reorder-handle").css("visibility", "hidden");
+
+    if (!!newPosition) {
+      $.post(url, { position: newPosition }, function () {
+        window.location.reload();
+      });
+    }
   }
 
   return this.each(function() {
