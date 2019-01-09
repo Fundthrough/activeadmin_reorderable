@@ -55,9 +55,9 @@ $.fn.reorderable = function(opts) {
       newPosition = nextPosition || prevPosition;
     }
 
-    $(".reorder-handle").css("visibility", "hidden");
-
     if (!!newPosition) {
+      $(".reorder-handle").css("visibility", "hidden");
+
       $.post(url, { position: newPosition }, function () {
         window.location.reload();
       });
